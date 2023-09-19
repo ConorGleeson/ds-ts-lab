@@ -84,14 +84,19 @@ import {
 
 
  
-  function getBuddyListFriends(list: BuddyList): Friend[] {
-    return list.members.reduce((friends: Friend[], member) => {
-      if ("age" in member) {
-        friends.push(member as Friend);
-      }
-      return friends;
-    }, []);
+  // function getBuddyListFriends(list: BuddyList): Friend[] {
+  //   return list.members.reduce((friends: Friend[], member) => {
+  //     if ("age" in member) {
+  //       friends.push(member as Friend);
+  //     }
+  //     return friends;
+  //   }, []);
+  // }
+
+  function getBuddyListFriends(list: BuddyList): Friend[]{
+    return list.members.filter((buddy) => "phone" in buddy) as Friend[]
   }
 
+  console.log("Answer to last part")
   console.log(getBuddyListFriends(myFootballBuddies))
   
